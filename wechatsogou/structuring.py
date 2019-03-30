@@ -158,9 +158,13 @@ class WechatSogouStructuring(object):
                     'isv': '',  # 是否加v
                 }
             }
-        """
-        page = etree.HTML(text)
+        """ 
+        page = etree.HTML(text) 
+        result = etree.tostring(page)
+        testF = open(r"D:\pythonWrokSpace\WechatSogou\test.html",'w')
+        print(result.decode('utf-8'),file=testF)
         lis = page.xpath('//ul[@class="news-list"]/li')
+        print(lis)
 
         articles = []
         for li in lis:
